@@ -8,4 +8,3 @@
 - [Модель данных](./data-model/data-model.md)
 - [Архитектура](./architecture/architecture.md)
 - [Взаимодействие компонентов](./interaction/interaction.md)
-.
