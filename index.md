@@ -7,7 +7,8 @@
 <a href="bpmn_practice_ba.png" target="_blank">
   <img src="bpmn_practice_ba.png" width="1200"/>
 </a>
-**Модель BPMN → см. [diagrams/bpmn-seller-process.bpmn](practice_ba.txt)**
+
+[Открыть XML-файл](practice_ba.bpmn)
 
 ## Основные бизнес-процессы
 
