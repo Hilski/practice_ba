@@ -4,7 +4,7 @@
 
 **Модель данных:**
 <a href="db.png" target="_blank">
-  <img src="db.png" width="1920"/>
+  <img src="db.png" width="1000"/>
 </a>
 
 # Модель данных (табличное описание)
