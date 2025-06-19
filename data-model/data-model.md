@@ -2,67 +2,101 @@
 
 В данной модели описаны основные сущности, необходимые для функционирования подсистемы продавцов маркетплейса.
 
----
-
-## Основные сущности
-
-### 1. Seller (Продавец)
-- `id` (PK)
-- `company_name`
-- `inn`
-- `email`
-- `phone`
-- `registration_status` (pending / approved / rejected)
-- `created_at`
-
-### 2. Product (Товар)
-- `id` (PK)
-- `seller_id` (FK → Seller.id)
-- `name`
-- `description`
-- `price`
-- `sku`
-- `category_id` (FK → Category.id)
-- `status` (draft / pending / approved / rejected)
-- `created_at`
-
-### 3. Inventory (Складской остаток)
-- `id` (PK)
-- `product_id` (FK → Product.id)
-- `quantity`
-- `warehouse_location`
-- `updated_at`
-
-### 4. Order (Заказ)
-- `id` (PK)
-- `product_id` (FK → Product.id)
-- `buyer_id` (FK → Buyer.id)
-- `quantity`
-- `status` (new / confirmed / shipped / delivered / canceled)
-- `ordered_at`
-
-### 5. Buyer (Покупатель)
-- `id` (PK)
-- `full_name`
-- `email`
-- `phone`
-- `address`
-
-### 6. Question (Вопрос к товару)
-- `id` (PK)
-- `product_id` (FK → Product.id)
-- `buyer_id` (FK → Buyer.id)
-- `question_text`
-- `answer_text`
-- `asked_at`
-- `answered_at`
-
-### 7. Category (Категория)
-- `id` (PK)
-- `name`
-- `parent_id` (FK → Category.id)
+# Модель данных (табличное описание)
 
 ---
+
+## Seller (Продавец)
+
+| Поле                | Тип данных   | Описание                                      |
+|---------------------|--------------|-----------------------------------------------|
+| `id`                | UUID         | Уникальный идентификатор продавца             |
+| `company_name`      | string       | Название компании                             |
+| `inn`               | string       | ИНН                                           |
+| `email`             | string       | Электронная почта                             |
+| `phone`             | string       | Телефон                                       |
+| `registration_status` | enum      | Статус регистрации: `pending`, `approved`, `rejected` |
+| `created_at`        | datetime     | Дата создания записи                          |
+
+---
+
+## Product (Товар)
+
+| Поле         | Тип данных | Описание                                           |
+|--------------|------------|----------------------------------------------------|
+| `id`         | UUID       | Уникальный идентификатор товара                   |
+| `seller_id`  | UUID       | Внешний ключ на продавца                          |
+| `name`       | string     | Название товара                                   |
+| `description`| text       | Подробное описание                                |
+| `price`      | decimal    | Цена                                              |
+| `sku`        | string     | Уникальный артикул                                |
+| `category_id`| UUID       | Категория товара                                  |
+| `status`     | enum       | Статус: `draft`, `pending`, `approved`, `rejected`|
+| `created_at` | datetime   | Дата добавления                                   |
+
+---
+
+## Inventory (Складской остаток)
+
+| Поле               | Тип данных | Описание                                 |
+|--------------------|------------|------------------------------------------|
+| `id`               | UUID       | Уникальный идентификатор записи          |
+| `product_id`       | UUID       | Внешний ключ на товар                    |
+| `quantity`         | int        | Количество на складе                     |
+| `warehouse_location`| string    | Расположение склада                      |
+| `updated_at`       | datetime   | Дата последнего обновления               |
+
+---
+
+## Order (Заказ)
+
+| Поле         | Тип данных | Описание                                |
+|--------------|------------|-----------------------------------------|
+| `id`         | UUID       | Уникальный идентификатор заказа         |
+| `product_id` | UUID       | Заказанный товар                        |
+| `buyer_id`   | UUID       | Идентификатор покупателя                |
+| `quantity`   | int        | Количество                             |
+| `status`     | enum       | Статус: `new`, `confirmed`, `shipped`, `delivered`, `canceled` |
+| `ordered_at` | datetime   | Дата создания заказа                    |
+
+---
+
+## Buyer (Покупатель)
+
+| Поле       | Тип данных | Описание                |
+|------------|------------|-------------------------|
+| `id`       | UUID       | Уникальный идентификатор|
+| `full_name`| string     | Полное имя              |
+| `email`    | string     | Почта                   |
+| `phone`    | string     | Телефон                 |
+| `address`  | string     | Адрес доставки          |
+
+---
+
+## Question (Вопрос к товару)
+
+| Поле          | Тип данных | Описание                            |
+|---------------|------------|-------------------------------------|
+| `id`          | UUID       | Уникальный идентификатор вопроса    |
+| `product_id`  | UUID       | Ссылка на товар                     |
+| `buyer_id`    | UUID       | Ссылка на покупателя                |
+| `question_text`| text      | Текст вопроса                       |
+| `answer_text` | text       | Ответ продавца                      |
+| `asked_at`    | datetime   | Дата вопроса                        |
+| `answered_at` | datetime   | Дата ответа                         |
+
+---
+
+## Category (Категория)
+
+| Поле       | Тип данных | Описание                           |
+|------------|------------|------------------------------------|
+| `id`       | UUID       | Уникальный идентификатор категории |
+| `name`     | string     | Название категории                 |
+| `parent_id`| UUID       | Родительская категория (nullable)  |
+
+---
+
 
 ## Диаграмма ER (PlantUML)
 
