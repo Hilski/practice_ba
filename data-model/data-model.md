@@ -4,10 +4,10 @@
 
 **Модель данных:**
 <a href="db.png" target="_blank">
-  <img src="db.png" width="300"/>
+  <img src="db.png" width="600"/>
 </a>
 
-[Открыть PUML-файл](https://github.com/Hilski/practice_ba/blob/main/data-model/db.png)
+[Открыть PUML-файл](https://github.com/Hilski/practice_ba/blob/main/data-model/db)
 
 # Модель данных (табличное описание)
 
