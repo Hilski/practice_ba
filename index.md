@@ -5,9 +5,9 @@
 Подсистема продавцов предназначена для обеспечения самостоятельной работы внешних поставщиков (продавцов) на маркетплейсе. Продавцы могут регистрироваться, размещать и управлять товарами, обрабатывать заказы, вести складской учёт и взаимодействовать с покупателями и администрацией платформы.
 
 <a href="bpmn_practice_ba.png" target="_blank">
-  <img src="bpmn_practice_ba.png" width="600"/>
+  <img src="bpmn_practice_ba.png" width="1200"/>
 </a>
-**Модель BPMN → см. [diagrams/bpmn-seller-process.bpmn](practice_ba.md)**
+**Модель BPMN → см. [diagrams/bpmn-seller-process.bpmn](practice_ba.txt)**
 
 ## Основные бизнес-процессы
 
