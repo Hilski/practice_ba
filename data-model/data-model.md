@@ -4,7 +4,7 @@
 
 **Модель данных:**
 <a href="db.png" target="_blank">
-  <img src="db.png" width="1000"/>
+  <img src="db.png" width="300"/>
 </a>
 
 # Модель данных (табличное описание)
@@ -101,92 +101,3 @@
 | `parent_id`| UUID       | Родительская категория (nullable)  |
 
 ---
-
-
-## Диаграмма ER (PlantUML)
-
-```plantuml
-@startuml
-
-' Стиль IE — информация по модели данных маркетплейса
-
-entity "Seller" {
-  * id : UUID
-  --
-  company_name : string
-  inn : string
-  email : string
-  phone : string
-  registration_status : enum
-  created_at : datetime
-}
-
-entity "Product" {
-  * id : UUID
-  --
-  seller_id : UUID
-  name : string
-  description : text
-  price : decimal
-  sku : string
-  category_id : UUID
-  status : enum
-  created_at : datetime
-}
-
-entity "Inventory" {
-  * id : UUID
-  --
-  product_id : UUID
-  quantity : int
-  warehouse_location : string
-  updated_at : datetime
-}
-
-entity "Order" {
-  * id : UUID
-  --
-  product_id : UUID
-  buyer_id : UUID
-  quantity : int
-  status : enum
-  ordered_at : datetime
-}
-
-entity "Buyer" {
-  * id : UUID
-  --
-  full_name : string
-  email : string
-  phone : string
-  address : string
-}
-
-entity "Question" {
-  * id : UUID
-  --
-  product_id : UUID
-  buyer_id : UUID
-  question_text : text
-  answer_text : text
-  asked_at : datetime
-  answered_at : datetime
-}
-
-entity "Category" {
-  * id : UUID
-  --
-  name : string
-  parent_id : UUID
-}
-
-' связи
-Seller ||--o{ Product
-Product ||--o{ Inventory
-Product ||--o{ Order
-Product ||--o{ Question
-Buyer ||--o{ Order
-Buyer ||--o{ Question
-Category ||--o{ Product
-
-@enduml
