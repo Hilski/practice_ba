@@ -7,6 +7,8 @@
   <img src="db.png" width="300"/>
 </a>
 
+[Открыть PUML-файл](https://github.com/Hilski/practice_ba/blob/main/data-model/db.png)
+
 # Модель данных (табличное описание)
 
 ---
