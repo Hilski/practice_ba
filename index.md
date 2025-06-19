@@ -8,7 +8,7 @@
   <img src="bpmn_practice_ba.png" width="1200"/>
 </a>
 
-[Открыть XML-файл](practice_ba.bpmn)
+[Открыть XML-файл](https://github.com/Hilski/practice_ba/blob/main/practice_ba.bpmn)
 
 ## Основные бизнес-процессы
 
