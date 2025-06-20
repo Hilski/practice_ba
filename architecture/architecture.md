@@ -10,7 +10,7 @@
 ## C4 Level 1 — Контекстная диаграмма
 
 <a href="C4L1.png" target="_blank">
-  <img src="C4L1.png" width="600"/>
+  <img src="C4L1.png" width="500"/>
 </a>
 
 [Открыть PUML](https://github.com/Hilski/practice_ba/blob/main/architecture/C4L1)
@@ -20,7 +20,7 @@
 ## C4 Level 2 — Диаграмма контейнеров
 
 <a href="C4L2.png" target="_blank">
-  <img src="C4L2.png" width="600"/>
+  <img src="C4L2.png" width="800"/>
 </a>
 
 [Открыть PUML](https://github.com/Hilski/practice_ba/blob/main/architecture/C4L2)
