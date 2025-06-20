@@ -1,0 +1,17 @@
+@startuml
+actor Buyer
+participant "Marketplace App" as Market
+participant "Seller API" as API
+participant "Order Service" as Order
+participant "DB" as DB
+participant "Logistics" as Logistics
+
+Buyer -> Market : Оформить заказ
+Market -> API : POST /orders
+API -> Order : Создание заказа
+Order -> DB : Сохранение заказа
+Order -> Logistics : Запрос на доставку
+Logistics --> Order : OK
+Order --> API : Заказ подтвержден
+API --> Market : Ответ клиенту
+@enduml
