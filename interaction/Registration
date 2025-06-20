@@ -1,0 +1,17 @@
+@startuml
+actor Seller
+participant "Web App" as Web
+participant "Seller API" as API
+participant "Auth Service" as Auth
+participant "DB" as DB
+participant "Moderation Service" as Mod
+
+Seller -> Web : Ввод регистрационных данных
+Web -> API : POST /register
+API -> Auth : Создание пользователя
+Auth --> API : OK
+API -> DB : Сохранение данных продавца (status=pending)
+API -> Mod : Отправка на модерацию
+Mod --> API : OK
+API --> Web : Регистрация завершена
+@enduml
