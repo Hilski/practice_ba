@@ -1,0 +1,15 @@
+@startuml
+actor Seller
+participant "Web App" as Web
+participant "Seller API" as API
+participant "Moderation Service" as Mod
+participant "DB" as DB
+
+Seller -> Web : Создание карточки товара
+Web -> API : POST /products
+API -> DB : Сохраняем товар (status=draft)
+API -> Mod : Отправка на модерацию
+Mod -> DB : Обновление статуса товара (pending -> approved/rejected)
+Mod --> API : Модерация завершена
+API --> Web : Карточка товара опубликована
+@enduml
