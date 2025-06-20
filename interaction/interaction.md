@@ -7,7 +7,7 @@
 ## Сценарий 1: Регистрация продавца
 
 <a href="Registration.png" target="_blank">
-  <img src="Registration.png" width="500"/>
+  <img src="Registration.png" width="700"/>
 </a>
 
 [Открыть PUML](https://github.com/Hilski/practice_ba/blob/main/interaction/Registration)
@@ -17,7 +17,7 @@
 ## Сценарий 2: Размещение и модерация карточки товара
 
 <a href="Publication.png" target="_blank">
-  <img src="Publication.png" width="500"/>
+  <img src="Publication.png" width="700"/>
 </a>
 
 [Открыть PUML](https://github.com/Hilski/practice_ba/blob/main/interaction/Publication)
@@ -27,7 +27,7 @@
 ## Сценарий 3: Обработка заказа
 
 <a href="Order.png" target="_blank">
-  <img src="Order.png" width="500"/>
+  <img src="Order.png" width="700"/>
 </a>
 
 [Открыть PUML](https://github.com/Hilski/practice_ba/blob/main/interaction/Order)
