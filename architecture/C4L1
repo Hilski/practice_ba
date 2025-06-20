@@ -1,0 +1,20 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+Person(seller, "Продавец", "Управляет товарами и заказами через личный кабинет")
+Person(buyer, "Покупатель", "Покупает товары на маркетплейсе")
+Person(admin, "Администратор", "Проверяет продавцов и карточки")
+System(system, "Подсистема продавцов", "Позволяет управлять товарами, заказами и складом")
+
+System_Ext(payment, "Платежный шлюз", "Внешняя система для обработки оплат")
+System_Ext(logistics, "Логистика", "Внешняя служба доставки")
+System_Ext(mainMarketplace, "Маркетплейс", "Фронтенд сайта и мобильное приложение")
+
+seller --> system : Регистрация, управление товарами
+buyer --> mainMarketplace : Поиск и покупка
+mainMarketplace --> system : API для получения карточек товаров
+system --> payment : Создание платёжной сессии
+system --> logistics : Запрос на доставку
+admin --> system : Модерация, жалобы
+
+@enduml
