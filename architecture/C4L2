@@ -1,0 +1,30 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+System_Boundary(seller_system, "Подсистема продавцов") {
+
+  Container(web, "Seller Web App", "React", "Интерфейс для продавца")
+  Container(api, "Seller API", "Spring Boot", "REST API для операций продавцов")
+  Container(auth, "Auth Service", "Keycloak / OAuth2", "Аутентификация и авторизация")
+  Container(moderation, "Moderation Service", "Spring Boot", "Проверка карточек и продавцов")
+  Container(order, "Order Service", "Spring Boot", "Обработка заказов")
+  Container(db, "PostgreSQL", "База данных", "Хранение данных продавцов, товаров, заказов")
+  Container(queue, "Kafka", "Сообщения", "Асинхронная коммуникация и событийность")
+
+}
+
+Person(seller, "Продавец")
+Person(admin, "Администратор")
+
+seller --> web : HTTP/HTTPS
+web --> api : REST
+api --> auth : Проверка токенов
+api --> db : CRUD-запросы
+api --> queue : Публикация событий
+api --> moderation : Проверка карточек
+api --> order : Создание заказов
+order --> db : Хранение заказов
+moderation --> db : Проверка продавцов/товаров
+admin --> moderation : Интерфейс модерации
+
+@enduml
