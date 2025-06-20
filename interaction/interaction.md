@@ -27,7 +27,7 @@
 ## Сценарий 3: Обработка заказа
 
 <a href="Order.png" target="_blank">
-  <img src="Order.png" width="700"/>
+  <img src="Order.png" width="600"/>
 </a>
 
 [Открыть PUML](https://github.com/Hilski/practice_ba/blob/main/interaction/Order)
