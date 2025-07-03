@@ -1,0 +1,12 @@
+@startuml
+entity "ModerationLog" {
+  * id : UUID
+  --
+  entity_type : enum ['seller','product']
+  entity_id : UUID
+  status : enum
+  reviewed_by : UUID
+  reviewed_at : datetime
+  comments : text
+}
+@enduml
