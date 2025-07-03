@@ -1,5 +1,4 @@
 @startuml
-
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
 System_Boundary(seller_system, "Подсистема продавцов") {
@@ -9,26 +8,34 @@ System_Boundary(seller_system, "Подсистема продавцов") {
   Container(order, "Order Service", "Spring Boot", "Обработка заказов")
   Container(auth, "Auth Service", "Keycloak / OAuth2", "Аутентификация и авторизация")
   Container(moderation, "Moderation Service", "Spring Boot", "Проверка карточек и продавцов")
- 
-  Container(db, "PostgreSQL", "База данных", "Хранение данных продавцов, товаров, заказов")
-  Container(kafka, "Kafka", "Сообщения", "Асинхронная коммуникация и событийность")
+  
+  ' Базы данных теперь отдельные
+  ContainerDb(api_db, "Seller DB (schema: seller)", "PostgreSQL", "Продавцы, товары, категории, остатки")
+  ContainerDb(order_db, "Order DB (schema: order)", "PostgreSQL", "Покупатели, заказы")
+  ContainerDb(moderation_db, "Moderation DB (schema: moderation)", "PostgreSQL", "История модераций")
 
+  Container(kafka, "Kafka", "Сообщения", "Асинхронная коммуникация и событийность")
 }
 
 Person(seller, "Продавец")
 Person(admin, "Администратор")
 
+' Взаимодействие фронта
 seller --> web : HTTP/HTTPS
 web --> api : REST
-api --> auth : Проверка токенов
-api --> db : CRUD-запросы
 
-' Kafka взаимодействия
-api --> kafka : Публикация событий (ProductCreated, OrderCreated, SellerUpdated)
-moderation --> kafka : Чтение событий (ProductCreated, SellerUpdated)
-moderation --> db : Проверка продавцов/товаров
-order --> kafka : Чтение событий (OrderCreated, OrderStatusChanged)
-order --> db : Хранение заказов
+' Аутентификация
+api --> auth : Проверка токенов
+
+' Работа с БД
+api --> api_db : Данные продавцов и товаров
+order --> order_db : Данные заказов и покупателей
+moderation --> moderation_db : Логи модерации
+
+' Kafka: события
+api --> kafka : Публикация (ProductCreated, OrderCreated, SellerUpdated)
+moderation --> kafka : Подписка (ProductCreated, SellerUpdated)
+order --> kafka : Подписка (OrderCreated, OrderStatusChanged)
 
 admin --> moderation : Интерфейс модерации
 
