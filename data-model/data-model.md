@@ -5,7 +5,7 @@
 Seller API - сервис
 
 <a href="db.png" target="_blank">
-  <img src="db.png" width="600"/>
+  <img src="db.png" width="300"/>
 </a>
 
 [Открыть PUML-файл](https://github.com/Hilski/practice_ba/blob/main/data-model/db)
@@ -68,8 +68,8 @@ Seller API - сервис
 
 Order Service - сервис
 
-<a href="db.png" target="_blank">
-  <img src="db.png" width="600"/>
+<a href="db1.png" target="_blank">
+  <img src="db.png" width="300"/>
 </a>
 
 [Открыть PUML-файл](https://github.com/Hilski/practice_ba/blob/main/data-model/db1)
@@ -105,8 +105,8 @@ Order Service - сервис
 
 Moderation Service - сервис
 
-<a href="db.png" target="_blank">
-  <img src="db.png" width="600"/>
+<a href="db2.png" target="_blank">
+  <img src="db.png" width="300"/>
 </a>
 
 [Открыть PUML-файл](https://github.com/Hilski/practice_ba/blob/main/data-model/db2)
