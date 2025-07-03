@@ -9,7 +9,6 @@ System_Boundary(seller_system, "Подсистема продавцов") {
   Container(auth, "Auth Service", "Keycloak / OAuth2", "Аутентификация и авторизация")
   Container(moderation, "Moderation Service", "Spring Boot", "Проверка карточек и продавцов")
   
-  ' Базы данных теперь отдельные
   ContainerDb(api_db, "Seller DB (schema: seller)", "PostgreSQL", "Продавцы, товары, категории, остатки")
   ContainerDb(order_db, "Order DB (schema: order)", "PostgreSQL", "Покупатели, заказы")
   ContainerDb(moderation_db, "Moderation DB (schema: moderation)", "PostgreSQL", "История модераций")
