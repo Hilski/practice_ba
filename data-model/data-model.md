@@ -72,7 +72,7 @@ Order Service - сервис
   <img src="db.png" width="300"/>
 </a>
 
-[Открыть PUML-файл](https://github.com/Hilski/practice_ba/blob/main/data-model/db1)
+[Открыть PUML-файл](https://github.com/Hilski/practice_ba/blob/main/data-model/db1.png)
 
 # Модель данных (табличное описание)
 
