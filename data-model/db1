@@ -1,0 +1,22 @@
+@startuml
+entity "Buyer" {
+  * id : UUID
+  --
+  full_name : string
+  email : string
+  phone : string
+  address : string
+}
+
+entity "Order" {
+  * id : UUID
+  --
+  product_id : UUID
+  buyer_id : UUID
+  quantity : int
+  status : enum
+  ordered_at : datetime
+}
+
+Buyer ||--o{ Order
+@enduml
